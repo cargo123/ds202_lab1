@@ -15,3 +15,51 @@ output: html_document
 
     - Interesting fact about yourself? 
          I have two dogs named panda and sprinkles
+         y = c(1,2,3,NA)
+x = c(47,34,33,65,37,NA,43,NA,11,NA,23,NA)
+n = which(is.na(x))
+length(n)
+
+
+
+age = c(25,30,45,60,12,41)
+smoker = c('T','F','T','F','F','F')
+weight = c(120,137,0,168,91,142)
+example_data = data.frame(age,smoker,weight)
+example_data$weight[3]=150
+example_data
+
+NA_mean = function(x) {
+  y=  mean(is.na(x))
+  return (y)
+}
+
+x = c (1,2,3,4,NA,4,2,3,4,5)
+mean = NA_mean(x)
+mean
+
+NA_in_data = function(x) {
+  y=  x / sum(x, na.rm = TRUE)
+  return (y)
+}
+
+x = c (1,2,3,4,NA,4,2,3,4,5)
+data= NA_in_data(x)
+data
+ #need one argument in both functions.
+
+
+both_na = function(x,y){
+  if(length(x)==length(y)){
+    n = which(is.na(x))
+    m = which(is.na(y))
+    s = length(n)+length(m)
+    return(s)
+  } else {
+    return("Not Equal Vectors")}
+}
+    
+x = c(1,2,3,NA)
+y = c(3,2,1,NA)
+both = both_na(x,y) 
+both
